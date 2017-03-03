@@ -4,4 +4,6 @@
     <string name="activity_log_title">Activity log</string>
     <string name="notifications_title">Notifications</string>
     <string name="menu_item_today">Today</string>
+    <string name="drawer_toggle_close">Close</string>
+    <string name="drawer_toggle_open">Open</string>
 </resources>
