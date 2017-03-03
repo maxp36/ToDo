@@ -3,4 +3,5 @@
     <string name="search_title">Search</string>
     <string name="activity_log_title">Activity log</string>
     <string name="notifications_title">Notifications</string>
+    <string name="menu_item_today">Today</string>
 </resources>
