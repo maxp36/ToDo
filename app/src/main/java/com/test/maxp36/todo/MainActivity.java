@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.test.maxp36.todo.fragment.ExampleFragment;
+import com.test.maxp36.todo.fragment.MyListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,16 +22,11 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
 
-    private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppDefault);
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
-
-        fragmentManager = getSupportFragmentManager();
 
         initToolbar();
         initNavigationView();
@@ -70,10 +66,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showExampleFragment() {
-        fragmentTransaction = fragmentManager.beginTransaction();
-
-        fragmentTransaction.replace(R.id.linear_compat_layout, ExampleFragment.getInstance());
-
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.linear_compat_layout, new MyListFragment())
+                .commit();
     }
 }

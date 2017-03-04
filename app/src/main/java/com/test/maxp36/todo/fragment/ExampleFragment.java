@@ -14,22 +14,9 @@ public class ExampleFragment extends Fragment {
 
     public static final int LAYOUT = R.layout.fragment_layout;
 
-    private View view;
-
-    public static ExampleFragment getInstance() {
-        Bundle args = new Bundle();
-        ExampleFragment fragment = new ExampleFragment();
-        fragment.setArguments(args);
-
-        return fragment;
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        view = inflater.inflate(LAYOUT, container, false);
-
-        return view;
+        return inflater.inflate(LAYOUT, container, false);
     }
 }
