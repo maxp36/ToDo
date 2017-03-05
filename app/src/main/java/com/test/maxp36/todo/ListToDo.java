@@ -6,11 +6,11 @@ import java.util.Date;
 public class ListToDo {
 
     public String name;
-    public Date date;
+    public String date;
 
     public ListToDo(String name) {
         this.name = name;
-        date = new Date();
+        date = String.format("F" + new Date());
     }
 
 }

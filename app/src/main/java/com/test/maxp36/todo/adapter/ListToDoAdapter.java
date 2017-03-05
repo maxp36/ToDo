@@ -47,12 +47,12 @@ public class ListToDoAdapter extends ArrayAdapter<ListToDo> {
 
         ListToDo item = data[position];
         holder.name.setText(item.name);
-        holder.date.setText(item.date.toString());
+        holder.date.setText(item.date);
 
         return row;
     }
 
-    static class ListToDoHolder {
+    private static class ListToDoHolder {
         private TextView name;
         private TextView date;
     }

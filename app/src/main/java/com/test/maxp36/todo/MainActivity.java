@@ -66,8 +66,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showExampleFragment() {
-        getSupportFragmentManager().beginTransaction()
+        /*getSupportFragmentManager().beginTransaction()
                 .replace(R.id.linear_compat_layout, new MyListFragment())
+                .commit();*/
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.linear_compat_layout, new MyListFragment())
+                .add(R.id.linear_compat_layout1, new MyListFragment())
                 .commit();
     }
 }

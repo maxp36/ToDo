@@ -7,6 +7,7 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.test.maxp36.todo.ListToDo;
 import com.test.maxp36.todo.R;
@@ -31,6 +32,15 @@ public class MyListFragment extends ListFragment {
 
         ListToDoAdapter adapter = new ListToDoAdapter(getActivity(), R.layout.list_fragment_item , listToDo);
 
+        View header = createHeader("Today", savedInstanceState);
+        getListView().addHeaderView(header);
+
         setListAdapter(adapter);
+    }
+
+    private View createHeader(String name, @Nullable Bundle savedInstanceState) {
+        View v = getLayoutInflater(savedInstanceState).inflate(R.layout.header_list_view, null);
+        ((TextView)v.findViewById(R.id.name_day)).setText(name);
+        return v;
     }
 }
