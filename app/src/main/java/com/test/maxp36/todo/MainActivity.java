@@ -4,16 +4,13 @@ package com.test.maxp36.todo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.test.maxp36.todo.fragment.ExampleFragment;
-import com.test.maxp36.todo.fragment.MyListFragment;
+import com.test.maxp36.todo.fragment.TodayFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -67,12 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void showExampleFragment() {
         /*getSupportFragmentManager().beginTransaction()
-                .replace(R.id.linear_compat_layout, new MyListFragment())
+                .replace(R.id.linear_compat_layout, new TodayListFragment())
                 .commit();*/
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.linear_compat_layout, new MyListFragment())
-                .add(R.id.linear_compat_layout1, new MyListFragment())
+                .replace(R.id.main_linear_layout, new TodayFragment())
                 .commit();
     }
 }

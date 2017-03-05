@@ -1,6 +1,7 @@
 package com.test.maxp36.todo;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ListToDo {
@@ -10,7 +11,7 @@ public class ListToDo {
 
     public ListToDo(String name) {
         this.name = name;
-        date = String.format("F" + new Date());
+        date = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
     }
 
 }

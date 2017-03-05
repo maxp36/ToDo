@@ -13,7 +13,7 @@ import com.test.maxp36.todo.ListToDo;
 import com.test.maxp36.todo.R;
 import com.test.maxp36.todo.adapter.ListToDoAdapter;
 
-public class MyListFragment extends ListFragment {
+public class TodayListFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

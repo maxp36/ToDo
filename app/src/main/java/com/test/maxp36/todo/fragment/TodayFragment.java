@@ -10,13 +10,19 @@ import android.view.ViewGroup;
 
 import com.test.maxp36.todo.R;
 
-public class ExampleFragment extends Fragment {
+public class TodayFragment extends Fragment {
 
-    public static final int LAYOUT = R.layout.fragment_layout;
+    public static final int LAYOUT = R.layout.today_fragment_layout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.overdue, new OverdueListFragment())
+                .replace(R.id.today, new TodayListFragment())
+                .commit();
+
         return inflater.inflate(LAYOUT, container, false);
     }
 }
