@@ -13,13 +13,16 @@ import android.widget.TextView;
 import com.test.maxp36.todo.ListToDo;
 import com.test.maxp36.todo.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListToDoAdapter extends ArrayAdapter<ListToDo> {
 
     private Context context;
     private int layoutResourceId;
-    private ListToDo data[] = null;
+    private List<ListToDo> data = null;
 
-    public ListToDoAdapter (Context context, int layoutResourceId, ListToDo[] data) {
+    public ListToDoAdapter (Context context, int layoutResourceId, ArrayList<ListToDo> data) {
         super(context, layoutResourceId, data);
         this.context = context;
         this.layoutResourceId = layoutResourceId;
@@ -45,7 +48,7 @@ public class ListToDoAdapter extends ArrayAdapter<ListToDo> {
             holder = (ListToDoHolder)row.getTag();
         }
 
-        ListToDo item = data[position];
+        ListToDo item = data.get(position);
         holder.name.setText(item.name);
         holder.date.setText(item.date);
 

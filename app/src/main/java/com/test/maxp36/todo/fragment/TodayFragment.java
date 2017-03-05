@@ -14,15 +14,25 @@ public class TodayFragment extends Fragment {
 
     public static final int LAYOUT = R.layout.today_fragment_layout;
 
+    private OverdueListFragment overdueListFragment;
+    private TodayListFragment todayListFragment;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        overdueListFragment = new OverdueListFragment();
+        todayListFragment = new TodayListFragment();
+
         getChildFragmentManager().beginTransaction()
-                .replace(R.id.overdue, new OverdueListFragment())
-                .replace(R.id.today, new TodayListFragment())
+                .replace(R.id.overdue, overdueListFragment, "overdue")
+                .replace(R.id.today, todayListFragment, "today")
                 .commit();
+
+
 
         return inflater.inflate(LAYOUT, container, false);
     }
+
+
 }

@@ -3,14 +3,18 @@ package com.test.maxp36.todo;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.test.maxp36.todo.fragment.TodayFragment;
+import com.test.maxp36.todo.fragment.TodayListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
+    //private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,17 @@ public class MainActivity extends AppCompatActivity {
 
         initToolbar();
         initNavigationView();
+
+        /*FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (fragment.getTag()) {
+                    case "main_linear_layout" :
+                        ((TodayListFragment)fragment.getFragmentManager().findFragmentByTag("today")).addToDo("New ToDo");
+                }
+            }
+        });*/
     }
 
     private void initToolbar() {
@@ -55,20 +71,21 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.closeDrawers();
                 switch (item.getItemId()) {
                     case R.id.item_today:
-                        showExampleFragment();
+                        showTodayFragment();
                 }
                 return true;
             }
         });
     }
 
-    private void showExampleFragment() {
+    private void showTodayFragment() {
         /*getSupportFragmentManager().beginTransaction()
                 .replace(R.id.linear_compat_layout, new TodayListFragment())
                 .commit();*/
+        //fragment = new TodayFragment();
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_linear_layout, new TodayFragment())
+                .replace(R.id.main_linear_layout, new TodayFragment(), "main_linear_layout")
                 .commit();
     }
 }

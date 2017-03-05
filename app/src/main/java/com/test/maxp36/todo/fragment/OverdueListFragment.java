@@ -13,7 +13,11 @@ import com.test.maxp36.todo.ListToDo;
 import com.test.maxp36.todo.R;
 import com.test.maxp36.todo.adapter.ListToDoAdapter;
 
+import java.util.ArrayList;
+
 public class OverdueListFragment extends ListFragment {
+
+    private ArrayList<ListToDo> listToDo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -24,11 +28,13 @@ public class OverdueListFragment extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ListToDo listToDo[] = new ListToDo[]
+        initListToDo();
+
+        /*ListToDo listToDo[] = new ListToDo[]
                 {
                         new ListToDo("First Item"),
                         new ListToDo("Second Item")
-                };
+                };*/
 
         ListToDoAdapter adapter = new ListToDoAdapter(getActivity(), R.layout.list_fragment_item , listToDo);
 
@@ -36,6 +42,16 @@ public class OverdueListFragment extends ListFragment {
         getListView().addHeaderView(header);
 
         setListAdapter(adapter);
+    }
+
+    private void initListToDo() {
+        listToDo = new ArrayList<>();
+        addToDo("First Item");
+        addToDo("Second Item");
+    }
+
+    public void addToDo(String name) {
+        listToDo.add(new ListToDo(name));
     }
 
     private View createHeader(String name, @Nullable Bundle savedInstanceState) {
