@@ -1,6 +1,7 @@
 package com.test.maxp36.todo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -38,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 switch (fragment.getTag()) {
-                    case "main_linear_layout" :
-                        ((TodayListFragment)fragment.getFragmentManager().findFragmentByTag("today")).addToDo("New ToDo");
+                    case "main_linear_layout" : {
+                        Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
+                        intent.putExtra
+                        ((TodayListFragment) fragment.getFragmentManager().findFragmentByTag("today")).get;
+                    }
                 }
             }
         });*/

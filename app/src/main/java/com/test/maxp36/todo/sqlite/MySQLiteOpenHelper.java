@@ -24,6 +24,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                                 + "PRIORITY TEXT, "
                                 + "MARK);");
 
+        //sqLiteDatabase.execSQL("DROP TABLE TODO_ITEMS");
+
     }
 
     @Override
